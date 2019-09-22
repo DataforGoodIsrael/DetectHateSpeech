@@ -11,6 +11,9 @@ setup(
         'scikit-learn',
         'nltk',
         'matplotlib',
-        'wordcloud
+        'wordcloud',
+        'joblib',
+        'wordninja',
+        'xgboost'
     ],
 )
