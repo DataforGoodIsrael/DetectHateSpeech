@@ -14,6 +14,7 @@ setup(
         'wordcloud',
         'joblib',
         'wordninja',
-        'xgboost'
+        'xgboost',
+        'streamlit'
     ],
 )

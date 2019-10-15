@@ -183,7 +183,7 @@ def main():
 
     # output the best model
     import joblib
-    joblib.dump(modeling.pipelines['xgb'], '../models/xgb_pipeline.joblib')
+    joblib.dump(modeling, '../models/modeling.joblib')
 
 
 if __name__ == "__main__":
