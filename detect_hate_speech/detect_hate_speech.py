@@ -19,7 +19,7 @@ import string
 nltk.download('stopwords')
 
 STOPWORDS_NLTK = nltk.corpus.stopwords.words('english') + ['rt']
-MIN_LEN_WORD = 3
+MIN_LEN_WORD = 2
 
 
 class DataPreProcessing:
