@@ -5,15 +5,11 @@ import re
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 from sklearn.model_selection import train_test_split
-from sklearn.feature_extraction.text import TfidfTransformer, CountVectorizer
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.linear_model import LogisticRegression
 from sklearn import linear_model
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import LabelEncoder
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.calibration import CalibratedClassifierCV
-# from xgboost import XGBClassifier
 from sklearn.metrics import classification_report
 import string
 
