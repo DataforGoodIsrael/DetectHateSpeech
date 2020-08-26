@@ -25,6 +25,9 @@ Webapp
   cd DetectHateSpeech
   streamlit run webapp/webapp.py
 
+Webapp Example
+==============
+
 .. image:: https://github.com/DataforGoodIsrael/DetectHateSpeech/blob/master/webapp/Example_image.png
 
 
