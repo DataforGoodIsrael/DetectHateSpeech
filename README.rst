@@ -18,7 +18,10 @@ A Text Classification Model using a Calibrated SGD model and TF-IDF features.
 
 Webapp
 ======
-(To launch the webapp locally)
+
+We are using Streamlit for this tool.
+
+To launch the webapp locally:
 
 .. code-block:: bash
 
