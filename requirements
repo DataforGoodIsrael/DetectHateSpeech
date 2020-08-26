@@ -1,0 +1,10 @@
+pandas
+scikit-learn
+nltk
+matplotlib
+wordcloud
+joblib
+wordninja
+xgboost
+streamlit
+protobut>=3.13.0
