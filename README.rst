@@ -25,7 +25,7 @@ Webapp
   cd DetectHateSpeech
   streamlit run webapp/webapp.py
 
-.. image:: https://github.com/DataforGoodIsrael/DetectHateSpeech/webapp/Example_image.png
+.. image:: https://github.com/DataforGoodIsrael/DetectHateSpeech/blob/master/webapp/Example_image.png
 
 
 Metric Results
