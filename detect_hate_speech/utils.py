@@ -8,9 +8,12 @@ from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfTransformer, CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.linear_model import LogisticRegression
+from sklearn import linear_model
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import LabelEncoder
-from xgboost import XGBClassifier
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.calibration import CalibratedClassifierCV
+# from xgboost import XGBClassifier
 from sklearn.metrics import classification_report
 import string
 
@@ -100,6 +103,7 @@ class DataPreProcessing:
             .apply(self.stemming)\
             .apply(self.lemmatizer) + X.text.apply(self.get_hashtags).apply(
             wordninja.split)
+
         return result
 
 
@@ -112,7 +116,7 @@ class GetWordCloud:
                  background_color="white",
                  max_font_size=50,
                  max_words=100):
-        self. tweets_column = tweets_column
+        self.tweets_column = tweets_column
         self.background_color = background_color
         self.max_font_size = max_font_size
         self.max_words = max_words
@@ -135,9 +139,10 @@ class GetWordCloud:
 class Modeling:
     def __init__(self, tweets_column):
         self.tweets_column = tweets_column
-        self.pipelines = {}
-        self.predictions = {}
+        self.model = None
+        self.predictions = []
         self.test_rows = []
+        self.le = None
 
     def fit(self, X, y):
         X_train, X_test, y_train, y_test = train_test_split(X,
@@ -147,67 +152,28 @@ class Modeling:
                                                             random_state=42)
         self.le = LabelEncoder()
         self.test_rows = X_test.index.tolist()
-        self.pipelines['mnb'] = make_pipeline(CountVectorizer(),
-                                              TfidfTransformer(),
-                                              MultinomialNB())
 
-        self.pipelines['lr'] = make_pipeline(CountVectorizer(),
-                                             TfidfTransformer(),
-                                             LogisticRegression(
-                                                 class_weight='balanced',
-                                                 solver='lbfgs',
-                                                 multi_class='ovr')
-                                             )
+        clf = linear_model.SGDClassifier(n_jobs=-1, max_iter=1000, tol=1e-4,
+                                         n_iter=None)
+        model_calibrated = CalibratedClassifierCV(base_estimator=clf, cv=3,
+                                                  method='sigmoid')
 
-        self.pipelines['xgb'] = make_pipeline(CountVectorizer(),
-                                              TfidfTransformer(),
-                                              XGBClassifier(n_estimators=100,
-                                                            n_jobs=4))
+        self.model = make_pipeline(TfidfVectorizer(min_df=0.,
+                                                   max_df=1.,
+                                                   use_idf=True,
+                                                   max_features=
+                                                   20000),
+                                   model_calibrated)
 
-        # Add your idea for pipeline here
-
-        for _, ppl in self.pipelines.items():
-            ppl.fit(X_train.loc[:, self.tweets_column].str.join(" "),
-                    self.le.fit_transform(y_train))
+        self.model.fit(X_train.loc[:,
+                       self.tweets_column].str.join(" "),
+                       self.le.fit_transform(y_train))
 
     def predict(self, X):
-        for model, ppl in self.pipelines.items():
-            self.predictions[model] = ppl.predict(
-                X.loc[self.test_rows, self.tweets_column].str.join(" "))
+        self.predictions = self.model.predict(
+            X.loc[self.test_rows, self.tweets_column].str.join(" "))
 
     def score(self, y_true, y_pred):
         return classification_report(self.le.transform(y_true),
                                      y_pred,
                                      target_names=self.le.classes_)
-
-
-def main():
-    path = "../data/detect_hate_speech_data.csv"
-    data = pd.read_csv(path, sep='|', index_col=0).set_index('tweet_id')
-    X = data.iloc[:, :-1]
-    y = data.iloc[:, -1]
-    data_prep = DataPreProcessing(tweets_column='text')
-    X['clean_text'] = data_prep.fit_transform(X)
-
-    # Feature Engineering: todo
-
-    # Word Cloud
-    gwc = GetWordCloud(tweets_column='clean_text')
-    fig = gwc.generate(X, y)
-
-    # Modeling
-    modeling = Modeling(tweets_column='clean_text')
-    modeling.fit(X, y)
-    modeling.predict(X)
-    for model, pred in modeling.predictions.items():
-        print(model)
-        print(modeling.score(y[modeling.test_rows], pred))
-        print("-" * 55)
-
-    # Output the best model
-    import joblib
-    joblib.dump(modeling, '../models/modeling.joblib')
-
-
-if __name__ == "__main__":
-    main()

@@ -18,6 +18,30 @@ A Text Classification Xgboost Model.
 
 Webapp
 ======
+(To launch the webapp locally)
+
+.. code-block:: bash
+
+  cd DetectHateSpeech
+  streamlit run webapp/webapp.py
+
+.. image:: https://github.com/DataforGoodIsrael/DetectHateSpeech/webapp/Example_image.png
+
+
+Metric Results
+=============
+
+              precision    recall  f1-score   support
+
+  homophobia       0.88      0.82      0.85        17
+        none       0.93      0.98      0.95      4949
+      sexism       0.84      0.53      0.65       836
+
+   micro avg       0.92      0.92      0.92      5802
+   macro avg       0.88      0.78      0.82      5802
+weighted avg       0.91      0.92      0.91      5802
+
+-------------------------------------------------------
 
 
 Installation
