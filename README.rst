@@ -14,7 +14,7 @@ We merge multiple dataset:
 Solution
 ========
 
-A Text Classification Xgboost Model.
+A Text Classification Model using a Calibrated SGD model and TF-IDF features.
 
 Webapp
 ======
