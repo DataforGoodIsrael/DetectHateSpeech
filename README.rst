@@ -28,11 +28,15 @@ Webapp
 Webapp Example
 ==============
 
-.. image:: https://github.com/DataforGoodIsrael/DetectHateSpeech/blob/master/webapp/Example_image.png
+Test tweet: https://twitter.com/Huntsdakidd1/status/1289994153204551681
+
+.. image:: https://github.com/DataforGoodIsrael/DetectHateSpeech/blob/master/webapp/example.png
 
 
 Metric Results
 =============
+
+.. code-block:: bash
 
               precision    recall  f1-score   support
 
