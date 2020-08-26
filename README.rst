@@ -46,7 +46,7 @@ Metric Results
 
    micro avg       0.92      0.92      0.92      5802
    macro avg       0.88      0.78      0.82      5802
-weighted avg       0.91      0.92      0.91      5802
+   weighted avg       0.91      0.92      0.91      5802
 
 -------------------------------------------------------
 
@@ -62,8 +62,10 @@ Installation
 Contributing
 ============
 
-Author and current maintainer are the Data For Good Tema.
+Author and current maintainer are the Data For Good Team.
+
 You are more than welcome to approach us for help.
+
 Contributions are very welcomed.
 
 Installing for development
@@ -78,5 +80,6 @@ Clone:
 
 Credits
 =======
-Created by Jeremy Atias and Samuel Jefroykin from Data For Good Israel
-hello@dataforgoodisrael.com
+Created by Jeremy Atia and Samuel Jefroykin from Data For Good Israel
+
+Contact us at hello@dataforgoodisrael.com
