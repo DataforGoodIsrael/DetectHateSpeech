@@ -71,6 +71,15 @@ You are more than welcome to approach us for help.
 
 Contributions are very welcomed.
 
+Improvement and Next Step
+=========================
+
+
+- Collection more data with less biased labelling.
+- Working on the modelization.
+- Creating a way to integrate our model and webapp with Twitter or other system for social media moderators (Add-On, API ...)
+
+
 Installing for development
 --------------------------
 
