@@ -88,8 +88,8 @@ Improvement and Next Steps
 
 - Collect more data with less biased labelling.
 - Use this article: Sai Saketh Aluru, Binny Mathew, Punyajoy Saha and Animesh Mukherjee. "Deep Learning Models for Multilingual Hate Speech Detection". https://arxiv.org/pdf/2004.06465.pdf. We used it in the research part, let's implement it!
-- Working on the modelization.
-- Creating a way to integrate our model and webapp with Twitter or other system for social media moderators (Add-On, API ...)
+- Working on the improving the model infrastructure.
+- Creating a way to integrate our model and WebApp with Twitter or other system for social media moderators (Add-On, API ...)
 
 
 
