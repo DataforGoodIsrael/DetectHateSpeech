@@ -3,6 +3,9 @@ Detect Hate Speech
 
 A small solution for targeting Homophobic and Sexist Tweets to be reported to Twitter by Data For Good, Israel.
 
+.. contents::
+
+.. section-numbering::
 
 Data Collection
 ===============
