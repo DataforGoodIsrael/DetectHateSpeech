@@ -75,9 +75,10 @@ Contributions are very welcomed.
 Research
 ========
 
-Go to https://github.com/DataforGoodIsrael/DetectHateSpeech/blob/master/research/sexisme_detection_model_panel.iypnb
+https://github.com/DataforGoodIsrael/DetectHateSpeech/blob/master/research/sexisme_detection_model_panel.iypnb
 
-We are there using different methods that our current model for this problem: Word2Vec, Transformers, NN ...etc
+We tried different methods to tackle this problem: Word2Vec, Transformers, NN ...etc
+You can find our research notebook there :)
 
 To be continued ...
 
