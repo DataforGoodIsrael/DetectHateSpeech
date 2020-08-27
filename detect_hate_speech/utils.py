@@ -1,9 +1,8 @@
-import wordninja
 import nltk
 import pandas as pd
 import re
-import matplotlib.pyplot as plt
-from wordcloud import WordCloud
+import string
+import wordninja
 from sklearn.model_selection import train_test_split
 from sklearn import linear_model
 from sklearn.pipeline import make_pipeline
@@ -11,7 +10,6 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.calibration import CalibratedClassifierCV
 from sklearn.metrics import classification_report
-import string
 
 
 nltk.download('stopwords')

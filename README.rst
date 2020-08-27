@@ -71,13 +71,26 @@ You are more than welcome to approach us for help.
 
 Contributions are very welcomed.
 
-Improvement and Next Step
-=========================
+
+Research
+========
+
+Go to https://github.com/DataforGoodIsrael/DetectHateSpeech/blob/master/research/sexisme_detection_model_panel.iypnb
+
+We are there using different methods that our current model for this problem: Word2Vec, Transformers, NN ...etc
+
+To be continued ...
+
+Improvement and Next Steps
+==========================
 
 
 - Collection more data with less biased labelling.
+- Use this article: Sai Saketh Aluru, Binny Mathew, Punyajoy Saha and Animesh Mukherjee. "Deep Learning Models for Multilingual Hate Speech Detection".
+https://arxiv.org/pdf/2004.06465.pdf. We used it in the research part, let's implement it!
 - Working on the modelization.
 - Creating a way to integrate our model and webapp with Twitter or other system for social media moderators (Add-On, API ...)
+
 
 
 Installing for development
