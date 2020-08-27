@@ -17,12 +17,6 @@ def main():
     data_prep = DataPreProcessing(tweets_column='text')
     X['clean_text'] = data_prep.fit_transform(X)
 
-    # Feature Engineering: todo
-
-    # Word Cloud
-    gwc = GetWordCloud(tweets_column='clean_text')
-    fig = gwc.generate(X, y)
-
     # Modeling
     final_model = Modeling(tweets_column='clean_text')
     final_model.fit(X, y)

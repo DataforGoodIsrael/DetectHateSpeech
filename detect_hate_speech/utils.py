@@ -103,35 +103,6 @@ class DataPreProcessing:
         return result
 
 
-class FeatureEngineering:
-    pass
-
-
-class GetWordCloud:
-    def __init__(self, tweets_column,
-                 background_color="white",
-                 max_font_size=50,
-                 max_words=100):
-        self.tweets_column = tweets_column
-        self.background_color = background_color
-        self.max_font_size = max_font_size
-        self.max_words = max_words
-
-    def generate(self, X, y):
-        fig, ax = plt.subplots(len(y.unique()), 1, figsize=(30, 30))
-        for i, label in enumerate(y.unique()):
-            df = X[y == label]
-            tweets = " ".join(df.loc[:, self.tweets_column].str.join(" "))
-            wordcloud = WordCloud(
-                max_font_size=self.max_font_size,
-                max_words=self.max_words,
-                background_color=self.background_color).generate(tweets)
-            ax[i].imshow(wordcloud, interpolation='bilinear')
-            ax[i].set_title(str(label) + ' tweets', fontsize=30)
-            ax[i].axis('off')
-        return fig
-
-
 class Modeling:
     def __init__(self, tweets_column):
         self.tweets_column = tweets_column
