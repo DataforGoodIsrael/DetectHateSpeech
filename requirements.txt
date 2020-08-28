@@ -7,4 +7,3 @@ joblib
 wordninja
 xgboost
 streamlit
-protobut>=3.13.0
