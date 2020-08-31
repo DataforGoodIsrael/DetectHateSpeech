@@ -11,7 +11,9 @@ Data Collection
 ===============
 We merge multiple dataset:
 
-- We are using hate speech dataset from https://github.com/ZeerakW/hatespeech and https://data.world/thomasrdavidson/hate-speech-and-offensive-language
+- We are using hate speech dataset from 
+    - https://github.com/ZeerakW/hatespeech and
+    - https://data.world/thomasrdavidson/hate-speech-and-offensive-language
 - We are scrapping sexist and homophobic tweets thanks to hashtags and doing special annotation.
 
 Solution
@@ -24,20 +26,22 @@ Webapp
 
 We are using Streamlit for this tool.
 
-To launch the webapp locally:
+Locally
+-------
 
 .. code-block:: bash
 
   cd DetectHateSpeech
   streamlit run webapp/webapp.py
 
-Webapp Example
-==============
+Live example with Heroku
+------------------------
 
-Test tweet: https://twitter.com/Huntsdakidd1/status/1289994153204551681
+For the webapp to work on `heroku <https://www.heroku.com>`_, 3 files are added: `Procfile <Procfile>`_, `runtime.txt <runtime.txt>`_ and `setup.sh <setup.sh>`_.
 
-.. image:: https://github.com/DataforGoodIsrael/DetectHateSpeech/blob/master/webapp/example.png
+You can access to the live webapp `here <https://detecthatespeech.herokuapp.com>`_.
 
+.. image:: webapp/example.png
 
 Metric Results
 =============
@@ -56,7 +60,6 @@ Metric Results
 
 -------------------------------------------------------
 
-
 Installation
 ============
 
@@ -64,37 +67,27 @@ Installation
 
   pip install -r requirements.txt
 
-
 Contributing
 ============
-
 Author and current maintainer are the Data For Good Team.
 
-You are more than welcome to approach us for help.
-
-Contributions are very welcomed.
-
+You are more than welcome to approach us for help and contributions are very welcomed!
 
 Research
 ========
+You can find our research notebook  `here <https://nbviewer.jupyter.org/github/DataforGoodIsrael/DetectHateSpeech/blob/master/research/sexisme_detection_model_panel.ipynb>`_.
 
-https://nbviewer.jupyter.org/github/DataforGoodIsrael/DetectHateSpeech/blob/master/research/sexisme_detection_model_panel.ipynb
+We tried different methods to tackle this problem: Word2Vec, Transformers, NN.
 
-We tried different methods to tackle this problem: Word2Vec, Transformers, NN ...etc
-You can find our research notebook there :)
-
-To be continued ...
+To be continued...
 
 Improvement and Next Steps
 ==========================
 
-
 - Collect more data with less biased labelling.
 - Use this article: Sai Saketh Aluru, Binny Mathew, Punyajoy Saha and Animesh Mukherjee. "Deep Learning Models for Multilingual Hate Speech Detection". https://arxiv.org/pdf/2004.06465.pdf. We used it in the research part, let's implement it!
 - Working on the improving the model infrastructure.
-- Creating a way to integrate our model and WebApp with Twitter or other system for social media moderators (Add-On, API ...)
-
-
+- Creating a way to integrate our model and WebApp with Twitter or other system for social media moderators (Add-On, API)
 
 Installing for development
 ==========================
@@ -108,6 +101,6 @@ Clone:
 
 Credits
 =======
-Created by Jeremy Atia and Samuel Jefroykin from Data For Good Israel
+Created by Jeremy Atia and Samuel Jefroykin from Data For Good Israel.
 
 Contact us at hello@dataforgoodisrael.com
